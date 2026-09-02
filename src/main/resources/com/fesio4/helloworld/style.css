@@ -1,0 +1,99 @@
+/* ============================================================
+   FeSiO4 · Hello World  —  modern theme (JavaFX CSS)
+   ------------------------------------------------------------
+   Note: JavaFX CSS does NOT support web keyframes/transition.
+   Motion (entrance fade, popup fade) is driven from Java using
+   javafx.animation FadeTransition, while ALL look-and-feel,
+   gradients, shadows, hover states live here in CSS so skinning
+   stays centralised and tweakable without touching Java code.
+   ============================================================ */
+
+.root {
+    -fx-font-family: "Segoe UI", "SF Pro Text", "PingFang SC", sans-serif;
+    -fx-base: #0f172a;
+    -fx-background: transparent;
+}
+
+/* --- Main window "card" ------------------------------------ */
+.card {
+    -fx-background-color: linear-gradient(to bottom right, #0f172a, #1e293b 45%, #0ea5e9);
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(15,23,42,0.55), 30, 0.25, 0, 8);
+    -fx-padding: 32;
+}
+
+.headline {
+    -fx-font-size: 30px;
+    -fx-font-weight: 700;
+    -fx-text-fill: white;
+}
+
+.subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: rgba(226,232,240,0.85);
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+/* --- Accent (primary) button -------------------------------- */
+.accent {
+    -fx-background-color: white;
+    -fx-background-radius: 999;
+    -fx-text-fill: #0f172a;
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-padding: 10 26 10 26;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.30), 12, 0.20, 0, 4);
+}
+.accent:hover {
+    -fx-background-color: linear-gradient(to right, #38bdf8, #22d3ee);
+    -fx-text-fill: #0f172a;
+    -fx-effect: dropshadow(gaussian, rgba(56,189,248,0.55), 18, 0.35, 0, 6);
+}
+.accent:focused {
+    -fx-background-color: linear-gradient(to right, #38bdf8, #22d3ee);
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(56,189,248,0.7), 20, 0.4, 0, 6);
+}
+.accent:pressed {
+    -fx-scale-x: 0.97;
+    -fx-scale-y: 0.97;
+    -fx-effect: dropshadow(gaussian, rgba(56,189,248,0.4), 10, 0.2, 0, 3);
+}
+
+/* --- Modern popup / dialog ----------------------------------- */
+.dialog-pane {
+    -fx-background-color: #1e293b;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 28, 0.3, 0, 10);
+}
+.dialog-pane .header-panel,
+.dialog-pane .header-panel .label {
+    -fx-background-color: #0f172a;
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 17px;
+    -fx-font-weight: 700;
+}
+.dialog-pane .content.label {
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 14px;
+}
+.pop-message {
+    -fx-font-size: 26px;
+    -fx-font-weight: 700;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 0%, #38bdf8, #22d3ee);
+}
+.dialog-pane .button {
+    -fx-background-color: linear-gradient(to right, #38bdf8, #22d3ee);
+    -fx-background-radius: 999;
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+    -fx-padding: 6 18 6 18;
+}
+.dialog-pane .button:hover {
+    -fx-background-color: #0ea5e9;
+}
