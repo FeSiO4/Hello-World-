@@ -1,19 +1,10 @@
-# Build outputs
-target/
-*.class
+# Build output
+build/
 
 # IDE
-.idea/
-*.iml
 .vscode/
-.settings/
-.classpath
-.project
-bin/
+.idea/
 
 # OS
 Thumbs.db
 .DS_Store
-
-# Logs
-*.log

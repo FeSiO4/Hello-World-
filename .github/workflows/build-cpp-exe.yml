@@ -1,0 +1,43 @@
+# =============================================================================
+# Build a C++ program into a Windows .exe on GitHub Actions and upload it.
+# Triggered on every push to `main`.
+# =============================================================================
+name: build-cpp-exe
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: cmake -S . -B build
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Locate produced exe
+        shell: pwsh
+        run: |
+          Get-ChildItem -Recurse build -Filter *.exe | Select-Object FullName
+
+      - name: Run the exe (sanity check)
+        shell: pwsh
+        run: |
+          $exe = Get-ChildItem -Recurse build -Filter hello-world.exe | Select-Object -First 1
+          if (-not $exe) { Write-Error "hello-world.exe not produced"; exit 1 }
+          & $exe.FullName
+
+      - name: Upload exe artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-world-cpp-exe
+          path: build/Release/hello-world.exe
+          if-no-files-found: error
